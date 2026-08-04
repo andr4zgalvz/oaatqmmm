@@ -1,60 +1,97 @@
-body{
+:root{
+  --bg1: #EA4389;
+  --bg2: #ED619B;
+  --bg3: #F8BFD7;
+  --card-bg: #FCE8F1;
+  --accent: #F23A5A;
+  --text: #2d1f2a;
+  --muted: #6b4e5b;
+}
 
-background:linear-gradient(135deg,#EA4389,#ED619B,#F8BFD7);
+*{ box-sizing: border-box; }
 
-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-family: "China cat";
-
-margin:0;
-  
+html,body{
+  height:100%;
+  margin:0;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color:var(--text);
+  background: linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3));
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
 .contenedor{
-
-background: #FCE8F1;
-
-padding:50px;
-
-border-radius:20px;
-
-text-align:center;
-
-box-shadow:0px 0px 20px rgba(0,0,0,.2);
-
-font-size: 28px;
+  width: min(820px, 92%);
+  margin: 4vh auto;
+  background: var(--card-bg);
+  padding: clamp(20px, 4vw, 50px);
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
-button{
-
-padding:15px 30px;
-
-margin:15px;
-
-font-size:20px;
-
-border:none;
-
-border-radius:50px;
-
-background:#F23A5A;
-
-color:white;
-
-cursor:pointer;
-
-transition:.3s;
-
+h1{
+  margin: 0 0 0.5rem 0;
+  font-size: clamp(1.3rem, 2.6vw, 2rem);
 }
 
-button:hover{
+.lead{
+  margin: 0.25rem 0 1rem 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
 
-transform:scale(1.1);
+.highlight{
+  font-weight: 700;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
 
+.actions{
+  margin-top: 1.25rem;
+  display:flex;
+  gap: 12px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+/* Buttons / links */
+.btn{
+  display:inline-block;
+  text-decoration:none;
+  padding: 12px 26px;
+  border-radius: 40px;
+  font-weight:600;
+  cursor:pointer;
+  transition: transform .18s ease, box-shadow .18s ease;
+  outline: none;
+  border: 2px solid transparent;
+}
+
+.btn:focus{
+  box-shadow: 0 0 0 4px rgba(242,58,90,0.16);
+  transform: translateY(-1px);
+}
+
+.btn-primary{
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-ghost{
+  background: transparent;
+  color: var(--accent);
+  border-color: rgba(242,58,90,0.12);
+}
+
+.btn:hover{
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* Make text comfortable on small screens */
+@media (max-width:420px){
+  .contenedor{ padding: 18px; }
+  .actions{ gap:10px; }
 }
