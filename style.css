@@ -95,3 +95,28 @@ h1{
   .contenedor{ padding: 18px; }
   .actions{ gap:10px; }
 }
+/* Fix: centrar y contener imágenes de teléfonos dentro del contenedor */
+.contenedor img,
+.contenedor .phone,       /* usa el selector que corresponda en tu HTML */
+.contenedor .telefono {
+  max-width: 100%;       /* no exceder el ancho del contenedor */
+  height: auto;          /* conservar proporciones */
+  display: block;        /* permite margin: auto para centrar */
+  margin: 0 auto;        /* centrar horizontalmente */
+  object-fit: contain;   /* evitar recortes raros si usas width/height fijos */
+}
+
+/* Si la imagen está posicionada absolutamente y causa overflow,
+   intenta volverla estática/relativa o quitar offsets */
+.contenedor .phone,
+.contenedor .telefono {
+  position: relative;    /* o elimina position:absolute si existe */
+  left: 0;
+  right: 0;
+  transform: none;
+}
+
+/* Opcional: recortar cualquier desbordamiento visual del contenedor */
+.contenedor {
+  overflow: hidden; /* corta lo que sobresalga (útil si hay sombras/elementos posicionados) */
+}
